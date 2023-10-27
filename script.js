@@ -7,11 +7,11 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   if(computerSelection === "rock" && playerSelection === "rock" || computerSelection === "paper" && playerSelection === "paper" || computerSelection === "scissors" && playerSelection === "scissors") {
-    return 'Tie';
+    return `Draw! ${playerSelection} equals ${computerSelection}`;
   } else if(computerSelection === "rock" && playerSelection === "scissors" || computerSelection === "scissors" && playerSelection === "paper" || computerSelection === "paper" && playerSelection === "rock") {
-    return 'You Lose!';
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
   } else if(computerSelection === "scissors" && playerSelection === "rock" || computerSelection === "paper" && playerSelection === "scissors" || computerSelection === "rock" && playerSelection === "paper") {
-    return 'You Won!';
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
   };
 };
 
@@ -28,11 +28,11 @@ function game() {
 
     let result = playRound(playerSelection, computerSelection);
 
-    if (result === 'Tie') {
+    if (result === `Draw! ${playerSelection} equals ${computerSelection}`) {
       draw++;
-    } else if (result === 'You Lose!') {
+    } else if (result === `You Lose! ${computerSelection} beats ${playerSelection}`) {
       computerScore++;
-    } else if (result === 'You Won!') {
+    } else if (result === `You Win! ${playerSelection} beats ${computerSelection}`) {
       playerScore++;
     };
     console.log(`Result: ${result} \n Player Chose: ${playerSelection} and Computer Chose: ${computerSelection} \n Score: \n Draw: ${draw}, Player Score: ${playerScore}, Computer Score: ${computerScore}`);
